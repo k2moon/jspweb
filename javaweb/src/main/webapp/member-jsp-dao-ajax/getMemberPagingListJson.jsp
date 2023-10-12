@@ -1,11 +1,11 @@
+<%@page import="member.common.CommonUtil"%>
+<%@page import="member.dto.MemberDTO"%>
+<%@page import="member.dto.PagingDTO"%>
+<%@page import="member.dao.MemberDAO"%>
 <%@page import="com.google.gson.Gson"%>
-<%@page import="membermvc.PagingDTO"%>
-<%@page import="membermvc.MemberDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="membermvc.MemberDAO"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@page import="member.PagingUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -17,8 +17,8 @@ int pageNum = 1;
 if(curPage != null) {
 	pageNum = Integer.parseInt(curPage);			
 }
-int listNum = PagingUtil.listNum;
-int blockNum = PagingUtil.blockNum;
+int listNum = CommonUtil.listNum;
+int blockNum = CommonUtil.blockNum;
 
 // 검색을 위해 필요
 Map<String,String> search = new HashMap<>();

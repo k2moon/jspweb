@@ -10,9 +10,9 @@
 <title>memberNameSearchList.jsp</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-	function getMemberListAjax() {
+	function getMemberListAjax(page) {
 		const name = $("#name").val();
-		const params = {name};
+		const params = {page,name};
 	    $.ajax({
 	        type: 'POST',
 	        url: 'getMemberSearchNameListJson.jsp',

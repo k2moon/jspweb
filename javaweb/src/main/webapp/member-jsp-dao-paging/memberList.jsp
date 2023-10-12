@@ -1,8 +1,8 @@
+<%@page import="member.dto.PagingDTO"%>
+<%@page import="member.dto.MemberDTO"%>
+<%@page import="member.dao.MemberDAO"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@page import="memberpaging.PagingDTO"%>
-<%@page import="memberpaging.MemberDTO"%>
-<%@page import="memberpaging.MemberDAO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
