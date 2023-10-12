@@ -72,20 +72,22 @@
 
 <tr>
 <td colspan="6">
-
-<%if(isBPrev){ %> <a href="memberList.jsp?page=<%=startPage-1%>">[<<]</a> <%} %>
-<%if(isPrev){ %> <a href="memberList.jsp?page=<%=pageNum-1%>">[<]</a> <%} %>
+<%
+String url = "memberList.do?page=";
+%>
+<%if(isBPrev){ %> <a href=<%=url%><%=startPage-1%>>[<<]</a> <%} %>
+<%if(isPrev){ %> <a href=<%=url%><%=pageNum-1%>>[<]</a> <%} %>
 
 <%for(int i=startPage; i<=endPage; i++) {%>
 	<%if(i == pageNum) {%>
 		<span style="color:red;">[<%=i %>]</span>
 	<%}else{%>
-		<a href="memberList.jsp?page=<%=i%>">[<%=i %>]</a>
+		<a href=<%=url%><%=i%>>[<%=i %>]</a>
 	<%} %>
 <%}%>
 
-<%if(isNext){ %> <a href="memberList.jsp?page=<%=pageNum+1%>">[>]</a> <%} %>
-<%if(isBNext){ %> <a href="memberList.jsp?page=<%=endPage+1%>">[>>]</a> 
+<%if(isNext){ %> <a href=<%=url%><%=pageNum+1%>>[>]</a> <%} %>
+<%if(isBNext){ %> <a href=<%=url%><%=endPage+1%>>[>>]</a> 
 <%} %>
 </td>
 </tr>

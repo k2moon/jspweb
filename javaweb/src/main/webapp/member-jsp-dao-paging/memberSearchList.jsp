@@ -92,20 +92,21 @@ searchSelect : <%=searchSelect %> / searchText : <%=searchText %>
 String s = "";
 if(searchText.length() != 0)
 	s = "&searchSelect="+searchSelect+"&searchText="+searchText;
+String url = "memberList.do?page=";
 %>
-<%if(isBPrev){ %> <a href="memberList.jsp?page=<%=startPage-1%><%=s %>>">[<<]</a> <%} %>
-<%if(isPrev){ %> <a href="memberList.jsp?page=<%=pageNum-1%><%=s %>">[<]</a> <%} %>
+<%if(isBPrev){ %> <a href="<%=url%><%=startPage-1%><%=s %>>">[<<]</a> <%} %>
+<%if(isPrev){ %> <a href="<%=url%><%=pageNum-1%><%=s %>">[<]</a> <%} %>
 
 <%for(int i=startPage; i<=endPage; i++) {%>
 	<%if(i == pageNum) {%>
 		<span style="color:red;">[<%=i %>]</span>
 	<%}else{%>
-		<a href="memberList.jsp?page=<%=i%><%=s %>">[<%=i %>]</a>
+		<a href="<%=url%><%=i%><%=s %>">[<%=i %>]</a>
 	<%} %>
 <%}%>
 
-<%if(isNext){ %> <a href="memberList.jsp?page=<%=pageNum+1%><%=s %>">[>]</a> <%} %>
-<%if(isBNext){ %> <a href="memberList.jsp?page=<%=endPage+1%><%=s %>">[>>]</a> 
+<%if(isNext){ %> <a href="<%=url%><%=pageNum+1%><%=s %>">[>]</a> <%} %>
+<%if(isBNext){ %> <a href="<%=url%><%=endPage+1%><%=s %>">[>>]</a> 
 <%} %>
 </td>
 </tr>
