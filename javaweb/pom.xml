@@ -35,6 +35,14 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.jfinal/cos -->
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>cos</artifactId>
+			<version>2022.2</version>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>

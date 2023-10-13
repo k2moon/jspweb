@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import member.dto.MemberDTO;
+import member.dto.MyfileDTO;
 
 public class MemberDAO {
 	private Connection getConnection() {
@@ -257,13 +258,16 @@ public class MemberDAO {
 		
 		try {
 			conn = getConnection();
-			String sel = "name";
-			String sql = "select * from member where 1 = 1 ";
 			
-			sql += " and " + search.get("searchSelect") +" like ? order by idx desc ";
+			String searchSelect = search.get("searchSelect");
+			String searchText = search.get("searchText");
+			
+			String sql = "select * from member where ";
+			
+			sql +=  searchSelect +" like ? order by idx desc ";
 			sql += " limit ? offset ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+ search.get("searchText") +"%");
+			pstmt.setString(1, "%"+ searchText +"%");
 			pstmt.setInt(2, listNum);
 			pstmt.setInt(3, offSet);
 			rs = pstmt.executeQuery();
@@ -286,5 +290,65 @@ public class MemberDAO {
 		return list;
 	} // End
 
+	public int insertFile(MyfileDTO dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		
+		try {
+			conn = getConnection();
+			
+			String sql = "insert into myfile(name, title, cate, ofile, sfile) values (?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(3, dto.getCate());
+			pstmt.setString(4, dto.getOfile());
+			pstmt.setString(5, dto.getSfile());
+			
+			rs = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt);
+		}
+		return rs;
+	} // End
+	
+	public List<MyfileDTO> getFileList() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<MyfileDTO> list = new ArrayList<MyfileDTO>();
+		
+		try {
+			conn = getConnection();
+			
+			String sql = "select * from myfile order by idx desc";
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				// DTO에 저장
+                MyfileDTO dto = new MyfileDTO();
+				dto.setIdx(rs.getString(1));
+                dto.setName(rs.getString(2));
+                dto.setTitle(rs.getString(3));
+                dto.setCate(rs.getString(4));
+                dto.setOfile(rs.getString(5));
+                dto.setSfile(rs.getString(6));
+                dto.setPostdate(rs.getString(7));			
+                
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(conn, pstmt, rs);
+		}
+		return list;
+	} // End
+	
 
 }

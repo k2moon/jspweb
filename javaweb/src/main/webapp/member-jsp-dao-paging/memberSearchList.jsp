@@ -92,7 +92,7 @@ searchSelect : <%=searchSelect %> / searchText : <%=searchText %>
 String s = "";
 if(searchText.length() != 0)
 	s = "&searchSelect="+searchSelect+"&searchText="+searchText;
-String url = "memberList.do?page=";
+String url = "memberSearchList.jsp?page=";
 %>
 <%if(isBPrev){ %> <a href="<%=url%><%=startPage-1%><%=s %>>">[<<]</a> <%} %>
 <%if(isPrev){ %> <a href="<%=url%><%=pageNum-1%><%=s %>">[<]</a> <%} %>

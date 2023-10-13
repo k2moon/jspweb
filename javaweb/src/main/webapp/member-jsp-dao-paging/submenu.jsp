@@ -16,6 +16,7 @@
 <a href="pagingEx.jsp">Paging JSP</a> |
 <a href="pagingEx2.jsp">Paging Class</a> |
 <a href="memberList.jsp">회원목록 - Paging</a> |
+<a href="memberSearchList.jsp">회원목록+검색 - Paging</a> |
 
 </h2>
 <hr>
