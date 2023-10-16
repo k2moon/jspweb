@@ -12,7 +12,7 @@ public class SqlSessionManager {
     public static SqlSessionFactory sqlSession;
     
     static {
-    	String config = "membermybatis/mybatis/mybatis-config.xml";
+    	String config = "member/mybatis/mybatis-config.xml";
     	
         Reader reader = null;;
         

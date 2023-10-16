@@ -3,6 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	
+  <typeAliases>
+  	<typeAlias alias="memberDTO" type="member.dto.MemberDTO" />
+  </typeAliases>
   <environments default="develpment">
         <environment id="develpment">
             <transactionManager type="JDBC" />
@@ -17,6 +21,6 @@
     </environments>
   <mappers>
     <mapper resource="member/mybatis/mapper/member.xml"/>
-    <mapper resource="member/mybatis/mapper/member-interface.xml"/>
+    <mapper resource="member/mybatis/mapper/MemberMapper.xml"/>
   </mappers>
 </configuration>

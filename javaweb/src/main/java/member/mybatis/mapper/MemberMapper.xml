@@ -3,16 +3,18 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="membermybatisinterface.MemberMapper">
+<mapper namespace="member.mybatis.mapper.MemberMapper">
 
         
     <select id="getMemberMap" parameterType="String" resultType="Map">
         <![CDATA[
-        select idx,id,pw,name,role,regdate from member where id = #{id}       
+        select idx,id,pw,name,role,regdate 
+        from member 
+        where id = #{id}       
         ]]>
     </select>
     
-    <select id="getMemberDTO" resultType="member.MemberDTO">
+    <select id="getMemberDTO" resultType="memberDTO">
         <![CDATA[
         select idx,id,pw,name,role,regdate 
         from member 
@@ -28,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]>
     </select>
     
-    <select id="getMemberList" resultType="member.MemberDTO">
+    <select id="getMemberList" resultType="memberDTO">
         <![CDATA[
         select idx,id,pw,name,role,regdate 
         from member 
@@ -36,23 +38,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]>
     </select>     
     
-    <insert id="insert" parameterType="member.MemberDTO">
+    <insert id="insert" parameterType="memberDTO">
         insert into member(id, pw, name, role) 
         values (#{id}, #{pw}, #{name}, #{role})        
     </insert>
 
-    <update id="update" parameterType="member.MemberDTO">
+    <update id="update" parameterType="memberDTO">
         update member 
         set pw = #{pw}, name = #{name}, role = #{role} 
         where id = #{id}
     </update>
 
-    <delete id="delete" parameterType="member.MemberDTO">
+    <delete id="delete" parameterType="memberDTO">
         delete from member 
         where id = #{id}
     </delete> 
     
-    <select id="getMemberSearchNameList" parameterType="member.MemberDTO" resultType="member.MemberDTO">
+    <select id="getMemberSearchNameList" parameterType="memberDTO" resultType="memberDTO">
         <![CDATA[
         select idx,id,pw,name,role,regdate from member
         where 1 = 1
@@ -72,12 +74,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]>
     </select>
     
-    <select id="getMemberListPaging" parameterType="Map" resultType="member.MemberDTO">
+    <select id="getMemberListPaging" parameterType="Map" resultType="memberDTO">
         <![CDATA[
         select idx,id,pw,name,role,regdate from member 
         order by idx desc limit #{listNum} offset #{offset}
         ]]>
     </select>
     
-
 </mapper>

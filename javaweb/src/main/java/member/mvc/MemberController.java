@@ -55,7 +55,6 @@ public class MemberController extends HttpServlet {
 			System.out.println("/memberList.do");
 			
 			List<MemberDTO> list = dao.getMemberList();
-			
 			request.setAttribute("list", list);			
 			view = "memberList.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);

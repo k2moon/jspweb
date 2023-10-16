@@ -1,4 +1,4 @@
-package member.mybatis.inter;
+package member.mybatis.mapper;
 
 import java.util.List;
 

@@ -24,13 +24,17 @@ int blockNum = CommonUtil.blockNum;
 Map<String,String> search = new HashMap<>();
 search.put("searchSelect", "name");
 search.put("searchText", "");
-MemberDAO dao = new MemberDAO();
-int totalCount = dao.getMemberCount(search);
 
+MemberDAO dao = new MemberDAO();
+// 1. count
+int totalCount = dao.getMemberCount(search);
+// 2. list
 List<MemberDTO> list = dao.getMemberListPaging(pageNum, listNum, search);
+// 3. paging
 PagingDTO paging = new PagingDTO(totalCount, pageNum, listNum, blockNum);
 paging.setPaging();
 System.out.println(paging);
+
 Map<String, Object> map = new HashMap<>();
 if(list.size() ==0) {
 	map.put("rs", "0");

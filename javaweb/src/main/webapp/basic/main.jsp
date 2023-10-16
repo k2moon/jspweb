@@ -7,8 +7,7 @@
 <title><%=request.getRequestURI() %></title>
 </head>
 <body>
-<%@include file="../topmenu.jsp" %>
-<%@include file="../subject.jsp" %>
+<%@include file="submenu.jsp" %>
 <h2><%=request.getRequestURI() %></h2>
 
 </body>

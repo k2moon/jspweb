@@ -21,7 +21,9 @@
     }
 </script>
 <body>
-    <h3>파일 업로드</h3>
+<%@include file="submenu.jsp" %>
+<h2>파일 업로드</h2>
+<hr>
     <span style="color: red;">${errorMessage }</span>
     <form name="fileForm" method="post" enctype="multipart/form-data"
           action="fileUploadAction.jsp" onsubmit="return validateForm(this);">

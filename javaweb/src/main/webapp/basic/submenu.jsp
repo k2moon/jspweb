@@ -14,6 +14,7 @@
 <%@include file="../subject.jsp" %>
 <h2>
 <a href="">Main</a> |
+<a href="fileUpload.jsp"> 파일업로드</a> |
 <a href="fileList.jsp"> 파일목록</a> |
 
 <% if (session.getAttribute("id") == null) { %>

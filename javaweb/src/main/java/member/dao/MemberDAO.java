@@ -231,8 +231,8 @@ public class MemberDAO {
 		try {
 			conn = getConnection();
 			
-			String sql = "select count(*) as cnt from member where 1 = 1 ";
-			sql += " and " + search.get("searchSelect") +" like ?";
+			String sql = "select count(*) as cnt from member ";
+			sql += " where " + search.get("searchSelect") +" like ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+ search.get("searchText") +"%");
 			
@@ -298,7 +298,8 @@ public class MemberDAO {
 		try {
 			conn = getConnection();
 			
-			String sql = "insert into myfile(name, title, cate, ofile, sfile) values (?, ?, ?, ?, ?)";
+			String sql = "insert into myfile(name, title, cate, ofile, sfile)";
+			sql += " values (?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getTitle());

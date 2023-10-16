@@ -2,13 +2,13 @@ package member.mybatis.xml;
 
 import java.util.List;
 
-import member.dao.MemberDAO;
+import member.dao.MemberDAOMybatis;
 import member.dto.MemberDTO;
 
 
 public class MemberServiceImpl implements IMemberService{
 	
-	MemberDAO dao = new MemberDAO();
+	MemberDAOMybatis dao = new MemberDAOMybatis();
 
 	@Override
 	public List<MemberDTO> getMemberList() {

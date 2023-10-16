@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import member.dto.MemberDTO;
+import member.mybatis.mapper.MemberMapper;
 
 
 public class MemberServiceImpl implements IMemberService{
